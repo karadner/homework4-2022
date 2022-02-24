@@ -1,3 +1,5 @@
+/* worked with Maya Posner and Maya Horowitz */
+
 body{
     font-family: Poppins, serif;
     background-image: url('../images/concrete_seamless.png');
@@ -10,15 +12,19 @@ header{
     flex-direction: column;
 }
 
-nav li{
+.nav_links{
     display:flex;
-    justify-content: center;
+    flex-direction:column;
+    align-items:center;
 }
 
 nav a:visited{
     color: blue;
 }
 
+a.nav_item:visited{
+    color:inherit;
+}
 
 .card > header{
     background: #288088;
@@ -58,27 +64,26 @@ h4{
     justify-content: center;
 }
 
-button{
-    align-items: baseline;
-}
+
 
 #logo{
-    animation: move 5s ease-in;
+    animation: move 5s ease;
 }
 
 
 @keyframes move{
-    from {top: 25px; opacity:0;}
-    to {bottom:475px; opacity: 1;}
+    from {width: 25px; opacity:0;}
+    to {width:475px; opacity: 1;}
 }
 
 @media screen and (min-width: 900px){
     header{
+        display:flex;
         flex-direction: row;
         justify-content: space-between;
     }
     
-    nav ul{
+    .nav_links{
         display: flex;
         flex-direction: row;
     }
@@ -91,6 +96,17 @@ button{
         position: sticky;
         top: 0;
     }
+
+    .pricing{
+        align-items:center;
+    }
+}
+
+@media screen and (prefers-reduced-motion: reduce){
+    #logo{
+        animation:none;
+    }
+    
 }
 
 @media print{
@@ -99,10 +115,8 @@ button{
         background-image: none;
     }
 
-    nav ul{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+    nav{
+        width: 100%;
     }
 
     .card{
@@ -110,7 +124,7 @@ button{
         flex-basis: 325px;
     }
 
-    .gallery{
+    h2#gallery, .gallery{
         display: none;
     }
 
@@ -118,11 +132,14 @@ button{
         content:"\01F44D";
     }
     .nav_links{
+        display:flex;
         flex-direction:row;
-        justify-content: space-evenly;
+        justify-content: space-around;
     }
    .pricing{
+       display:flex;
        flex-wrap:nowrap;
+       align-items: flex-end;
    }
 }
 
